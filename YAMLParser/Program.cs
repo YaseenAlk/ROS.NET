@@ -45,8 +45,10 @@ namespace YAMLParser
                     return 1;
                 }
 
+                List<string> dirs = messageDirectories.Value().Split(',').ToList();
+
                 Program.Run(
-                    messageDirectories.HasValue() ? messageDirectories.Values : null,
+                    messageDirectories.HasValue() ? dirs : null,
                     assemblies.HasValue() ? assemblies.Values : null,
                     outputDirectory.HasValue() ? outputDirectory.Value() : null,
                     interactive.HasValue(),
