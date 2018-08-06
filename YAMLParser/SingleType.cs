@@ -109,9 +109,14 @@ namespace FauxMessages
                 otherstuff = " = " + parts[1];
             }
 
-            if (IsCSharpKeyword(name))
+            if (!MsgFileLocation.IsValidCSharpIdentifier(name) && name.Length > 0)
             {
-                name = "@" + name;
+                if (IsCSharpKeyword(name))
+                {
+                    name = "@" + name;
+                }
+                else
+                    throw new ArgumentException(String.Format("Variable '{0}' from '{1}' is not a compatible C# identifier name\n\tAll variable names must conform to C# Language Specifications (refer to this StackOverflow answer: https://stackoverflow.com/a/950651/4036588)\n", name, parent.msgFileLocation.Path));
             }
 
             for (int i = 2; i < s.Length; i++)
@@ -227,10 +232,17 @@ namespace FauxMessages
                 name = parts[0];
                 otherstuff = " = " + parts[1];
             }
-            if (IsCSharpKeyword(name))
+
+            if (!MsgFileLocation.IsValidCSharpIdentifier(name) && name.Length > 0)
             {
-                name = "@" + name;
+                if (IsCSharpKeyword(name))
+                {
+                    name = "@" + name;
+                }
+                else
+                    throw new ArgumentException(String.Format("Variable '{0}' from '{1}' is not a compatible C# identifier name\n\tAll variable names must conform to C# Language Specifications (refer to this StackOverflow answer: https://stackoverflow.com/a/950651/4036588)\n", name, parent.msgFileLocation.Path));
             }
+
             for (int i = 2; i < backup.Length; i++)
                 otherstuff += " " + backup[i];
             if (otherstuff.Contains('='))
