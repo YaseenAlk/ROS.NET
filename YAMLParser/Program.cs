@@ -129,6 +129,8 @@ namespace YAMLParser
                 Console.WriteLine("Looking in " + d);
                 MsgFileLocator.findMessages(paths, pathssrv, actionFileLocations, d);
             }
+            // sort paths by priority
+            paths = MsgFileLocator.sortMessages(paths);
 
             // first pass: create all msg files (and register them in static resolver dictionary)
             var baseTypes = MessageTypeRegistry.Default.GetTypeNames().ToList();
