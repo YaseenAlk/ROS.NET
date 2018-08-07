@@ -13,6 +13,25 @@ namespace YAMLParser
             Templates.ActionMessagesPlaceHolder = File.ReadAllText(Path.Combine(templateProjectPath, "ActionMessagesPlaceHolder._cs"));
             Templates.ActionMessageTemplate = File.ReadAllText(Path.Combine(templateProjectPath, "ActionMessageTemplate._cs"));
             Templates.InnerMessageTemplate = File.ReadAllText(Path.Combine(templateProjectPath, "InnerMessageTemplate._cs"));
+
+            // MessageBase files
+            Templates.MessageBaseActionLibMsgsGoalID = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "actionlib_msgs", "GoalID._cs"));
+            Templates.MessageBaseActionLibMsgsGoalStatus = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "actionlib_msgs", "GoalStatus._cs"));
+            Templates.MessageBaseActionLibMsgsGoalStatusArray = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "actionlib_msgs", "GoalStatusArray._cs"));
+            Templates.MessageBaseGeometryMsgsQuaternion = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "Quaternion._cs"));
+            Templates.MessageBaseGeometryMsgsTransform = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "Transform._cs"));
+            Templates.MessageBaseGeometryMsgsTransformStamped = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "TransformedStamped._cs"));
+            Templates.MessageBaseGeometryMsgsVector3 = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "Vector3._cs"));
+            Templates.MessageBaseRosGraphMsgsClock = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "rosgraph_msgs", "Clock._cs"));
+            Templates.MessageBaseRosGraphMsgsLog = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "rosgraph_msgs", "Log._cs"));
+            Templates.MessageBaseStdMsgsDuration = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "std_msgs", "Duration._cs"));
+            Templates.MessageBaseStdMsgsHeader = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "std_msgs", "Header._cs"));
+            Templates.MessageBaseStdMsgsString = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "std_msgs", "String._cs"));
+            Templates.MessageBaseStdMsgsTime = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "std_msgs", "Time._cs"));
+            Templates.MessageBaseTfTfMessage = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "tf", "tfMessage._cs"));
+            Templates.MessageBaseRosMessage = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "RosMessage._cs"));
+            Templates.MessageBaseRosService = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "RosService._cs"));
+            Templates.MessageBaseTimeData = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "TimeData._cs"));
         }
 
         internal static string MessagesProj { get; set; }
@@ -22,5 +41,24 @@ namespace YAMLParser
         internal static string ActionMessagesPlaceHolder { get; set; }
         internal static string ActionMessageTemplate { get; set; }
         internal static string InnerMessageTemplate { get; set; }
+
+        // MessageBase files
+        internal static string MessageBaseActionLibMsgsGoalID { get; set; }
+        internal static string MessageBaseActionLibMsgsGoalStatus { get; set; }
+        internal static string MessageBaseActionLibMsgsGoalStatusArray { get; set; }
+        internal static string MessageBaseGeometryMsgsQuaternion { get; set; }
+        internal static string MessageBaseGeometryMsgsTransform { get; set; }
+        internal static string MessageBaseGeometryMsgsTransformStamped { get; set; }
+        internal static string MessageBaseGeometryMsgsVector3 { get; set; }
+        internal static string MessageBaseRosGraphMsgsClock { get; set; }
+        internal static string MessageBaseRosGraphMsgsLog { get; set; }
+        internal static string MessageBaseStdMsgsDuration { get; set; }
+        internal static string MessageBaseStdMsgsHeader { get; set; }
+        internal static string MessageBaseStdMsgsString { get; set; }
+        internal static string MessageBaseStdMsgsTime { get; set; }
+        internal static string MessageBaseTfTfMessage { get; set; }
+        internal static string MessageBaseRosMessage { get; set; }
+        internal static string MessageBaseRosService { get; set; }
+        internal static string MessageBaseTimeData { get; set; }
     }
 }
