@@ -20,7 +20,7 @@ namespace YAMLParser
             Templates.MessageBaseActionLibMsgsGoalStatusArray = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "actionlib_msgs", "GoalStatusArray._cs"));
             Templates.MessageBaseGeometryMsgsQuaternion = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "Quaternion._cs"));
             Templates.MessageBaseGeometryMsgsTransform = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "Transform._cs"));
-            Templates.MessageBaseGeometryMsgsTransformStamped = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "TransformedStamped._cs"));
+            Templates.MessageBaseGeometryMsgsTransformStamped = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "TransformStamped._cs"));
             Templates.MessageBaseGeometryMsgsVector3 = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "geometry_msgs", "Vector3._cs"));
             Templates.MessageBaseRosGraphMsgsClock = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "rosgraph_msgs", "Clock._cs"));
             Templates.MessageBaseRosGraphMsgsLog = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "rosgraph_msgs", "Log._cs"));
