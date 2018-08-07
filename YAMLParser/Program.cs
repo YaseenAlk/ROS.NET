@@ -21,7 +21,7 @@ namespace YAMLParser
         static List<ActionFile> actionFiles = new List<ActionFile>();
         private static ILogger Logger { get; set; }
         const string DEFAULT_OUTPUT_FOLDERNAME = "Messages";
-        static readonly string[] required_packages = {"std_msgs", "geometry_msgs", "actionlib_msgs", "sensor_msgs"};
+        static readonly string[] required_packages = {"std_msgs", "geometry_msgs", /*"actionlib_msgs",*/ "sensor_msgs"};
 
         public static void Main(params string[] args)
         {
@@ -170,7 +170,9 @@ namespace YAMLParser
 
             if (!StdMsgsProcessed()) // may seem obvious, but needed so that all other messages can build...
             {
+                string resolvedPkgs = String.Join(", ", MsgFile.resolver.Keys.OrderBy(x => x.ToString()).ToArray());
                 Console.WriteLine("Missing at least one of the following ROS packages: [\"" + String.Join("\", \"", required_packages) + "\"]. Exiting...");
+                Console.WriteLine("resolver's keys: [" + resolvedPkgs + "]");
                 return;
             }
 
