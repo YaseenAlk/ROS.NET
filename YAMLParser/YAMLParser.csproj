@@ -27,8 +27,8 @@
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 
-  <ItemGroup>
+  <!-- <ItemGroup>
     <ProjectReference Include="..\Uml.Robotics.Ros.MessageBase\Uml.Robotics.Ros.MessageBase.csproj" />
-  </ItemGroup>
+  </ItemGroup> -->
 
 </Project>
