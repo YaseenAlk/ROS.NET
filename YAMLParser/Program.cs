@@ -21,6 +21,7 @@ namespace YAMLParser
         static List<ActionFile> actionFiles = new List<ActionFile>();
         private static ILogger Logger { get; set; }
         const string DEFAULT_OUTPUT_FOLDERNAME = "Messages";
+        static readonly string[] required_packages = {"std_msgs", "geometry_msgs", "actionlib_msgs", "sensor_msgs"};
 
         public static void Main(params string[] args)
         {
@@ -167,6 +168,12 @@ namespace YAMLParser
             actionFiles = actionFileParser.GenerateRosMessageClasses();
             //var actionFiles = new List<ActionFile>();
 
+            if (!StdMsgsProcessed()) // may seem obvious, but needed so that all other messages can build...
+            {
+                Console.WriteLine("Missing at least one of the following ROS packages: [\"" + String.Join("\", \"", required_packages) + "\"]. Exiting...");
+                return;
+            }
+
             if (paths.Count + pathssrv.Count > 0)
             {
                 MakeTempDir(outputdir);
@@ -186,6 +193,11 @@ namespace YAMLParser
                 Console.WriteLine("Finished. Press enter.");
                 Console.ReadLine();
             }
+        }
+
+        public static bool StdMsgsProcessed()
+        {
+            return required_packages.All(c => MsgFile.resolver.ContainsKey(c));
         }
 
         private static void MakeTempDir(string outputdir)
