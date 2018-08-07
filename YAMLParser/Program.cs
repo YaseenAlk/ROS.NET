@@ -386,28 +386,33 @@ namespace YAMLParser
             File.WriteAllText(Path.Combine(outputdir, ".gitignore"), "*");
 
             // MessageBase files
-            File.WriteAllText(Path.Combine(outputdir, "actionlib_msgs", "GoalID.cs"), Templates.MessageBaseActionLibMsgsGoalID);
-            File.WriteAllText(Path.Combine(outputdir, "actionlib_msgs", "GoalStatus.cs"), Templates.MessageBaseActionLibMsgsGoalStatus);
-            File.WriteAllText(Path.Combine(outputdir, "actionlib_msgs", "GoalStatusArray.cs"), Templates.MessageBaseActionLibMsgsGoalStatusArray);
+            Directory.CreateDirectory(Path.Combine(outputdir, "MessageBase", "actionlib_msgs"));
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "actionlib_msgs", "GoalID.cs"), Templates.MessageBaseActionLibMsgsGoalID);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "actionlib_msgs", "GoalStatus.cs"), Templates.MessageBaseActionLibMsgsGoalStatus);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "actionlib_msgs", "GoalStatusArray.cs"), Templates.MessageBaseActionLibMsgsGoalStatusArray);
 
-            File.WriteAllText(Path.Combine(outputdir, "geometry_msgs", "Quaternion.cs"), Templates.MessageBaseGeometryMsgsQuaternion);
-            File.WriteAllText(Path.Combine(outputdir, "geometry_msgs", "Transform.cs"), Templates.MessageBaseGeometryMsgsTransform);
-            File.WriteAllText(Path.Combine(outputdir, "geometry_msgs", "TransformStamped.cs"), Templates.MessageBaseGeometryMsgsTransformStamped);
-            File.WriteAllText(Path.Combine(outputdir, "geometry_msgs", "Vector3.cs"), Templates.MessageBaseGeometryMsgsVector3);
+            Directory.CreateDirectory(Path.Combine(outputdir, "MessageBase", "geometry_msgs"));
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "geometry_msgs", "Quaternion.cs"), Templates.MessageBaseGeometryMsgsQuaternion);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "geometry_msgs", "Transform.cs"), Templates.MessageBaseGeometryMsgsTransform);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "geometry_msgs", "TransformStamped.cs"), Templates.MessageBaseGeometryMsgsTransformStamped);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "geometry_msgs", "Vector3.cs"), Templates.MessageBaseGeometryMsgsVector3);
 
-            File.WriteAllText(Path.Combine(outputdir, "rosgraph_msgs", "Clock.cs"), Templates.MessageBaseRosGraphMsgsClock);
-            File.WriteAllText(Path.Combine(outputdir, "rosgraph_msgs", "Log.cs"), Templates.MessageBaseRosGraphMsgsLog);
+            Directory.CreateDirectory(Path.Combine(outputdir, "MessageBase", "rosgraph_msgs"));
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "rosgraph_msgs", "Clock.cs"), Templates.MessageBaseRosGraphMsgsClock);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "rosgraph_msgs", "Log.cs"), Templates.MessageBaseRosGraphMsgsLog);
 
-            File.WriteAllText(Path.Combine(outputdir, "std_msgs", "Duration.cs"), Templates.MessageBaseStdMsgsDuration);
-            File.WriteAllText(Path.Combine(outputdir, "std_msgs", "Header.cs"), Templates.MessageBaseStdMsgsHeader);
-            File.WriteAllText(Path.Combine(outputdir, "std_msgs", "String.cs"), Templates.MessageBaseStdMsgsString);
-            File.WriteAllText(Path.Combine(outputdir, "std_msgs", "Time.cs"), Templates.MessageBaseStdMsgsTime);
+            Directory.CreateDirectory(Path.Combine(outputdir, "MessageBase", "std_msgs"));
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "std_msgs", "Duration.cs"), Templates.MessageBaseStdMsgsDuration);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "std_msgs", "Header.cs"), Templates.MessageBaseStdMsgsHeader);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "std_msgs", "String.cs"), Templates.MessageBaseStdMsgsString);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "std_msgs", "Time.cs"), Templates.MessageBaseStdMsgsTime);
 
-            File.WriteAllText(Path.Combine(outputdir, "tf", "tfMessage.cs"), Templates.MessageBaseTfTfMessage);
+            Directory.CreateDirectory(Path.Combine(outputdir, "MessageBase", "tf"));
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "tf", "tfMessage.cs"), Templates.MessageBaseTfTfMessage);
 
-            File.WriteAllText(Path.Combine(outputdir, "RosMessage.cs"), Templates.MessageBaseRosMessage);
-            File.WriteAllText(Path.Combine(outputdir, "RosService.cs"), Templates.MessageBaseRosService);
-            File.WriteAllText(Path.Combine(outputdir, "TimeData.cs"), Templates.MessageBaseTimeData);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "RosMessage.cs"), Templates.MessageBaseRosMessage);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "RosService.cs"), Templates.MessageBaseRosService);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "TimeData.cs"), Templates.MessageBaseTimeData);
 
 
         }
