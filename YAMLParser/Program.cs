@@ -16,7 +16,7 @@ namespace YAMLParser
 {
     internal class Program
     {
-        static List<MsgFile> msgsFiles = new List<MsgFile>();
+        public static List<MsgFile> msgsFiles = new List<MsgFile>();
         static List<SrvFile> srvFiles = new List<SrvFile>();
         static List<ActionFile> actionFiles = new List<ActionFile>();
         private static ILogger Logger { get; set; }
