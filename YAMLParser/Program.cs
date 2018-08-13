@@ -414,6 +414,12 @@ namespace YAMLParser
             File.WriteAllText(Path.Combine(outputdir, "MessageBase", "RosService.cs"), Templates.MessageBaseRosService);
             File.WriteAllText(Path.Combine(outputdir, "MessageBase", "TimeData.cs"), Templates.MessageBaseTimeData);
 
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "Attributes.cs"), Templates.MessageBaseAttributes);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "FeedbackActionMessage.cs"), Templates.MessageBaseFeedbackActionMessage);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "GoalActionMessage.cs"), Templates.MessageBaseGoalActionMessage);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "InnerActionMessage.cs"), Templates.MessageBaseInnerActionMessage);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "ResultActionMessage.cs"), Templates.MessageBaseResultActionMessage);
+            File.WriteAllText(Path.Combine(outputdir, "MessageBase", "WrappedFeedbackMessage.cs"), Templates.MessageBaseWrappedFeedbackMessage);
 
         }
 
