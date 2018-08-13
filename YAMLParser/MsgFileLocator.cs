@@ -54,7 +54,12 @@ namespace YAMLParser
                 foldername = chunks[chunks.Length - 3];
 
             if (!IsValidCSharpIdentifier(foldername))
-                throw new ArgumentException(String.Format("'{0}' from '{1}' is not a compatible C# identifier name\n\tThe package name must conform to C# Language Specifications (refer to this StackOverflow answer: https://stackoverflow.com/a/950651/4036588)\n", foldername, path));
+            {
+                foldername = foldername.Replace('-', '_');
+
+                if (!IsValidCSharpIdentifier(foldername))
+                    throw new ArgumentException(String.Format("'{0}' from '{1}' is not a compatible C# identifier name\n\tThe package name must conform to C# Language Specifications (refer to this StackOverflow answer: https://stackoverflow.com/a/950651/4036588)\n", foldername, path));
+            }
             
             return foldername;
         }
