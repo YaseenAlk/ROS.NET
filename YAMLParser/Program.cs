@@ -92,9 +92,13 @@ namespace YAMLParser
             {
                 outputdir = yamlparser_parent;
                 outputdir = Path.Combine(outputdir, DEFAULT_OUTPUT_FOLDERNAME);
+                Templates.LoadTemplateStrings(Path.Combine(yamlparser_parent, "YAMLParser", "TemplateProject"));
             }
-
-            Templates.LoadTemplateStrings(Path.Combine(yamlparser_parent, "YAMLParser", "TemplateProject"));
+            else
+                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "TemplateProject")))
+                    throw new InvalidOperationException("Unable to find TemplateProject folder");
+                else
+                    Templates.LoadTemplateStrings(Path.Combine(Directory.GetCurrentDirectory(), "TemplateProject"));
 
             MessageTypeRegistry.Default.ParseAssemblyAndRegisterRosMessages(MessageTypeRegistry.Default.GetType().GetTypeInfo().Assembly);
 
