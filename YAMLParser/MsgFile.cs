@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using YAMLParser;
+using Uml.Robotics.Ros;
 
 namespace FauxMessages
 {
@@ -937,7 +938,17 @@ namespace FauxMessages
             }
             else if (st.IsLiteral)
             {
-                throw new ArgumentException($"{st.Type} is not supported");
+                IEnumerable<string> resolvedNames = Program.msgsFiles.Select(o => o.Name);
+
+                if (resolvedNames.Contains(String.Join(".", pt.Split(".").Skip(1))))
+                {
+                    return string.Format(@"
+{0}//{1}
+{0}{1} = new {2}();
+{0}{1}.Randomize();", leadingWhitespace, name, pt);
+                }
+                else
+                    throw new ArgumentException($"{st.Type} is not supported");
             }
             else
             {
