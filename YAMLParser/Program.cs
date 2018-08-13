@@ -79,7 +79,7 @@ namespace YAMLParser
             {
                 di = Directory.GetParent(di.FullName);
             }
-            if (di == null)
+            if (di == null && outputdir == null)
                 throw new InvalidOperationException("Not started from within YAMLParser directory.");
             di = Directory.GetParent(di.FullName);
             yamlparser_parent = di.FullName;
