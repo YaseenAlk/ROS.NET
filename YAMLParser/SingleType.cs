@@ -109,12 +109,14 @@ namespace FauxMessages
                 otherstuff = " = " + parts[1];
             }
 
-            if (!MsgFileLocation.IsValidCSharpIdentifier(name) && name.Length > 0)
+            if (name == parent.Name.Split(".").Last() || !MsgFileLocation.IsValidCSharpIdentifier(name) && name.Length > 0)
             {
                 if (IsCSharpKeyword(name))
                 {
                     name = "@" + name;
                 }
+                else if (MsgFileLocation.IsValidCSharpIdentifier(name) && name == parent.Name.Split(".").Last())
+                    name = "_" + name;
                 else
                     throw new ArgumentException(String.Format("Variable '{0}' from '{1}' is not a compatible C# identifier name\n\tAll variable names must conform to C# Language Specifications (refer to this StackOverflow answer: https://stackoverflow.com/a/950651/4036588)\n", name, parent.msgFileLocation.Path));
             }
@@ -235,12 +237,14 @@ namespace FauxMessages
                 otherstuff = " = " + parts[1];
             }
 
-            if (!MsgFileLocation.IsValidCSharpIdentifier(name) && name.Length > 0)
+            if (name == parent.Name.Split(".").Last() || !MsgFileLocation.IsValidCSharpIdentifier(name) && name.Length > 0)
             {
                 if (IsCSharpKeyword(name))
                 {
                     name = "@" + name;
                 }
+                else if (MsgFileLocation.IsValidCSharpIdentifier(name) && name == parent.Name.Split(".").Last())
+                    name = "_" + name;
                 else
                     throw new ArgumentException(String.Format("Variable '{0}' from '{1}' is not a compatible C# identifier name\n\tAll variable names must conform to C# Language Specifications (refer to this StackOverflow answer: https://stackoverflow.com/a/950651/4036588)\n", name, parent.msgFileLocation.Path));
             }
