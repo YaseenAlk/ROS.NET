@@ -32,6 +32,12 @@ namespace YAMLParser
             Templates.MessageBaseRosMessage = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "RosMessage._cs"));
             Templates.MessageBaseRosService = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "RosService._cs"));
             Templates.MessageBaseTimeData = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "TimeData._cs"));
+            Templates.MessageBaseAttributes = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "Attributes._cs"));
+            Templates.MessageBaseFeedbackActionMessage = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "FeedbackActionMessage._cs"));
+            Templates.MessageBaseGoalActionMessage = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "GoalActionMessage._cs"));
+            Templates.MessageBaseInnerActionMessage = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "InnerActionMessage._cs"));
+            Templates.MessageBaseResultActionMessage = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "ResultActionMessage._cs"));
+            Templates.MessageBaseWrappedFeedbackMessage = File.ReadAllText(Path.Combine(templateProjectPath, "MessageBase", "WrappedFeedbackMessage._cs"));
         }
 
         internal static string MessagesProj { get; set; }
@@ -60,5 +66,11 @@ namespace YAMLParser
         internal static string MessageBaseRosMessage { get; set; }
         internal static string MessageBaseRosService { get; set; }
         internal static string MessageBaseTimeData { get; set; }
+        internal static string MessageBaseAttributes { get; set; }
+        internal static string MessageBaseFeedbackActionMessage { get; set; }
+        internal static string MessageBaseGoalActionMessage { get; set; }
+        internal static string MessageBaseInnerActionMessage { get; set; }
+        internal static string MessageBaseResultActionMessage { get; set; }
+        internal static string MessageBaseWrappedFeedbackMessage { get; set; }
     }
 }
