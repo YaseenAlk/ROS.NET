@@ -92,5 +92,14 @@ $EXTRACONSTRUCTOR
             //    ret &= {st.Name} == other.{st.Name};
             return ret;
         }
+
+        public override Dictionary<string, object> AsDictionary()
+        {
+            Dictionary<string, object> the_dictionary_to_return_for_this_method = new Dictionary<string, object>();
+
+            $DICTMSGCODE
+
+            return ret;
+        } 
     }
 }

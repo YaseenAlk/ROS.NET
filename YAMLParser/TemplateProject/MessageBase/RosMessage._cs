@@ -75,5 +75,10 @@ namespace Uml.Robotics.Ros
         {
             return base.GetHashCode();
         }
+
+        public virtual Dictionary<string, object> AsDictionary()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

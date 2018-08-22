@@ -405,7 +405,7 @@ namespace FauxMessages
                         backhalf += lines[i] + "\n";
                 }
             }
-            string GeneratedDeserializationCode = "", GeneratedSerializationCode = "", GeneratedRandomizationCode = "", GeneratedEqualityCode = "";
+            string GeneratedDeserializationCode = "", GeneratedSerializationCode = "", GeneratedRandomizationCode = "", GeneratedEqualityCode = "", GeneratedDictCode = "";
             if (memoizedcontent == null)
             {
                 memoizedcontent = "";
@@ -490,11 +490,13 @@ namespace FauxMessages
                 GeneratedSerializationCode += this.GenerateSerializationCode(Stuff[i]);
                 GeneratedRandomizationCode += this.GenerateRandomizationCode(Stuff[i]);
                 GeneratedEqualityCode += this.GenerateEqualityCode(Stuff[i]);
+                GeneratedDictCode += this.GenerateDictCode(Stuff[i]) + "\n";
             }
             GUTS = GUTS.Replace("$SERIALIZATIONCODE", GeneratedSerializationCode);
             GUTS = GUTS.Replace("$DESERIALIZATIONCODE", GeneratedDeserializationCode);
             GUTS = GUTS.Replace("$RANDOMIZATIONCODE", GeneratedRandomizationCode);
             GUTS = GUTS.Replace("$EQUALITYCODE", GeneratedEqualityCode);
+            GUTS = GUTS.Replace("$DICTMSGCODE", GeneratedDictCode);
             GUTS = GUTS.Replace("$MYMD5SUM", md5);
 
             return GUTS;
@@ -1000,6 +1002,18 @@ namespace FauxMessages
                 return string.Format(@"
 {0}ret &= {1}.Equals(other.{1});", leadingWhitespace, name);
             // and that's it
+        }
+
+        private string GenerateDictCode(SingleType st, int extraTabs = 0)
+        {
+            string leadingWhitespace = "";
+            for (int i = 0; i < LEADING_WHITESPACE + extraTabs; i++)
+                leadingWhitespace += "    ";
+
+            string keyName = st.Name;
+            keyName = keyName.Trim('@');  //in case it was a csharp keyword
+
+            return string.Format(@"{0}the_dictionary_to_return_for_this_method[""{1}""] = this.{2};", leadingWhitespace, keyName, st.Name);
         }
 
         public void Write(string outdir)
