@@ -99,7 +99,7 @@ $EXTRACONSTRUCTOR
 
             $DICTMSGCODE
 
-            return ret;
+            return the_dictionary_to_return_for_this_method;
         } 
     }
 }
