@@ -1006,9 +1006,12 @@ namespace FauxMessages
 
         private string GenerateDictCode(SingleType st, int extraTabs = 0)
         {
+            if (st.Const)
+                return "";
+            
             string leadingWhitespace = "";
             for (int i = 0; i < LEADING_WHITESPACE + extraTabs; i++)
-                leadingWhitespace += "    ";
+                leadingWhitespace += "\t";
 
             string keyName = st.Name;
             keyName = keyName.Trim('@');  //in case it was a csharp keyword
